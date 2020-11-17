@@ -14,8 +14,13 @@ export class ShoppingListService {
         this.ingredientsChanged.emit(this.ingredients.slice());
     }
 
-    getIngredients(): Ingredient[]{
-        
+    addIngredients(addedIngredients: Ingredient[]){
+        this.ingredients.push(...addedIngredients);
+        this.ingredientsChanged.emit(this.ingredients.slice());
+        console.log('shopping-list.service: ingredients: '+ this.ingredients.slice());
+    }
+
+    getIngredients(): Ingredient[]{       
         return this.ingredients.slice();
     }
 }
